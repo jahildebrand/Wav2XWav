@@ -42,7 +42,8 @@ tokens = regexp(name, date_pattern, 'tokens');
 
 if ~isempty(tokens)
     date_vals = str2double(tokens{1});
-    PARAMS.xhd.year = date_vals(1);
+    x1 = num2str(date_vals(1)); % Convert first element to string
+    PARAMS.xhd.year = str2double(x1(end-1:end)); %last two numbers
     PARAMS.xhd.month = date_vals(2);
     PARAMS.xhd.day = date_vals(3);
     PARAMS.xhd.hour = date_vals(4);
